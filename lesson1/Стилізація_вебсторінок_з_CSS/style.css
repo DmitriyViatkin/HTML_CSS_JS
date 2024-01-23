@@ -1,0 +1,29 @@
+
+body{
+	background-color: rgb(95, 228, 106);
+}
+h1{
+	text-align: center;
+	font-size: 5em;
+	color:brown;
+}
+p{
+	text-align: left;
+	font-size: 1.4em;
+	color:rgb(230, 71, 9);
+}
+.idea {
+	text-align: left;
+	font-size: 1.4em;
+	color:rgb(27, 11, 170);
+}
+
+li {
+	color: rgb(5, 112, 5);
+}
+#boxid {
+	color: blueviolet;
+	font-size: medium;
+	}
+
+

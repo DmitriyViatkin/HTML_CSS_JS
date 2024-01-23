@@ -5,8 +5,11 @@ var x = 2;// створюємо змінну "x"
 var y = 4;// створюємо змінну "У" 
 var z = x + 2*y; // створюємо змінну "z"  та віконуємо арифмет дію
 print(x);//виводимо значення x
+print ()
 print(y);//виводимо значення y
+print ()
 print(z);//виводимо значення z
+print ()
 
 // Змінюємо конструкцію
 
@@ -14,26 +17,73 @@ var x = 3;//створюємо змінну "x"
 var y = 2;//створюємо змінну "У" 
 y = x;//перепризначаємо "y"
 print ("X="+x);//виводимо значення x
+print ()
 print ("Y="+y);//виводимо значення z
+print ()
 
 var image = new SimpleImage("chapel.png");//Створюємо зміннудля зображення
 print(image);//Віводимо зображення
-
+print ()
 //Використання методів
 
 print( image.getWidth());//отримуємо ширину зображення
+print ()
 print( image.getHeight());//отримуємо ширину зображення
+print ()
 print( image.getPixel(x,y));//отримуємо ширину зображення
-
+print ()
 //Функції
 
 function square(x){
     var ans = x*x;
     return ans;
 } 
-
+print ()
 var y = square(4);
 print('square'+' '+y)
+
+// Додаткове завдання
+
+function cube (x){
+    
+    var cub=x*x*x;
+    return cub;
+}
+print ()
+print("Додаткове завдання")
+print ()
+print(cube(2));
+
+function suma (x,y,z){
+    
+    var suma= x+y+z;
+    return suma;
+}
+print ("Сумма 3 чиел")
+print ()
+print("Сумма ="+" "+suma(3,5,2));
+print()
+//функцію для сумування двох рядків.
+
+function conkatenation (a,b){
+ var con=(a+b);
+ print(con);
+ return con
+}
+var c =conkatenation("sor","ter");
+print(c)
+
+//Напишіть функцію, яка виводить ширину і висоту зображення.
+
+function image_info (image){
+   var image = new SimpleImage(image);
+    print (image.getWidth());
+    print (image.getHeight());
+}
+image_info("rodger.png");
+
+
+
 
 
 

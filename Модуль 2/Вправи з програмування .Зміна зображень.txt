@@ -1,0 +1,75 @@
+//Вправи з програмування: Зміна зображень
+/*Вправа 1
+Напишіть програму мовою JavaScript, яка видозмінить зображення, а саме: додасть три вертикальні смуги червоного (в лівій третині), зеленого (посередині) та синього (праворуч) кольорів. Наприклад, якщо ваша програма обробить світлину Дрю, то ви побачите як оригінальне фото ліворуч знизу зміниться на картинку праворуч.*/
+
+var picture = new SimpleImage("hilton.jpg");
+var pictures = new SimpleImage("hilton.jpg");
+
+function photoshop (picture){
+    
+   
+    var part = picture.getWidth()/3;
+    for (pixcel of picture.values()){
+        
+        if (pixcel.getX()<=part){
+            pixcel.setRed(255);
+        }
+        if (part < pixcel.getX()& pixcel.getX()<=part*2){
+            pixcel.setGreen(255);
+        }
+        else{
+           pixcel.setBlue(255); 
+            
+        }
+    }
+    return picture
+    
+}
+
+var new_picture = photoshop(picture);
+//print(pictures , new_picture);
+
+
+
+
+
+
+
+/*Напишіть функцію JavaScript з назвою swapRedGreen, що мінятиме місцями значення червоного і зеленого компонент для пікселів зображення. Вона матиме лише параметр pixel, що відповідає одній з-поміж сотень точок картинки. Так, наприклад, якщо початкові значення пікселя такі: червоний = 255, зелений = 100, синій = 150, після виконання swapRedGreen піксель перефарбується. Новий RGB-код виглядатиме так: червоний = 100, зелений = 255, синій = 150. */
+var main = swapRedGreen (picture)
+print (main)
+
+var picture = new SimpleImage("smallhands.png");
+print(picture);
+function swapRedGreen (image){
+    for (var pixcel of image.values()){
+        var red= pixcel.getRed();
+        var Green= pixcel.getGreen();
+       // var pixcel.getBlue();
+        pixcel.setRed(Green);
+        pixcel.setGreen(red);
+       // pixcel.setBlue();
+    }
+    return image
+}
+//var fotos = swapRedGreen(picture);
+print(swapRedGreen(picture))
+/*  Вправа 3
+Напишіть програму, щоб змінити колір диявола Дюка з синього (зображення знизу ліворуч) на жовтий (зображення знизу праворуч).*/
+
+var picture = new SimpleImage("duke_blue_devil.png");
+print(picture);
+function swapRedGreen (image){
+    for (var pixcel of image.values()){
+        var red= pixcel.getRed();
+        if (red==0){
+        pixcel.setRed(255);
+        pixcel.setGreen(255);
+        pixcel.setBlue(0);}
+    }
+    return image
+    
+}
+
+var main = swapRedGreen (picture)
+print (main)

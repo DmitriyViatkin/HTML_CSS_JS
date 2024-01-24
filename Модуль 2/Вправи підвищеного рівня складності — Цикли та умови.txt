@@ -1,0 +1,118 @@
+// Вправи підвищеного рівня складності — Цикли та умови
+/*Вправа 1 — Додайте червоного в кожен піксель зображення
+Напишіть код циклу для зображення каплиці (chapel.png), що послідовно перефарбує кожен піксель оригінального зображення на максимально можливий відтінок червоного. Має вийти як унизу: стандартна світлина ліворуч перетвориться на стилізоване зображення праворуч.*/
+var img = new SimpleImage("chapel.png");
+print(img)
+
+for (var pixel of img.values()){
+    if (pixel.getX()>= img.getWidth()/img.getWidth()-1){
+        pixel.setRed(255);
+    }
+}
+print(img)
+/* Вправа 2 — Приберіть червоний зі світлини
+Напишіть код циклу для зображення каплиці (chapel.png), що послідовно видалить червоний колір (R = 0). Як результат, стандартне зображення ліворуч має перетворитися на стилізоване зображення праворуч. Помітили, що отримане зображення містить лише відтінки синього й зеленого.*/
+var img = new SimpleImage("chapel.png");
+print(img)
+
+for (var pixel of img.values()){
+    if (pixel.getX()>= img.getWidth()/img.getWidth()-1){
+        pixel.setRed(0);
+    }
+}
+print(img)
+/* Вправа 3 — Зробіть яйця не такими червоними
+Напишіть програму для зображення «eastereggs.jpg», що бачите нижче ліворуч.  Вона має на меті зменшити кількість червоного до 70 в усіх пікселях, де перевищується це значення.  Ви маєте отримати зображення подібне світлини нижче праворуч (так, фінальне зображення може містити тьмяно-червоні чи бордові відтінки, але точно не яскраві вишневі чи гранатові). */
+var img = new SimpleImage("eastereggs.jpg");
+print(img)
+
+for (var pixel of img.values()){
+    if (pixel.getX()<= img.getWidth()){
+        pixel.setRed(70);
+    }
+}
+print(img)
+/*
+Вправа 4 — Додайте знизу світлини потовщену чорну риску
+Напишіть код для світлини з назвою «astrachan.jpg», що замінить пікселі у десяти рядках знизу на чорні — це додасть на портрет унизу ліворуч потовщену чорну лінію знизу, як ви бачите на світлині унизу праворуч. Зауважте, що чорний колір має 0 червоного, 0 зеленого, 0 синього. А піксель у верхньому лівому куті розташований за координатами 0 по осі x та 0 по осі y.*/
+var img = new SimpleImage("astrachan.jpg");
+print(img)
+
+for (var pixel of img.values()){
+    if (pixel.getY()>= img.getHeight()-10){
+        pixel.setRed(0);
+        pixel.setGreen(0);
+        pixel.setBlue(0);
+    }
+}
+print(img)
+
+/*Вправа 5 — Утворіть зелений квадрат у верхньому лівому куті зображення 
+Повернімося до зображення каплиці (chapel.png). Ліворуч знизу ви бачите оригінальне зображення, на яке треба додати зелений квадрат 50 на 50 пікселів (знизу праворуч те, як має вийти в результаті).*/
+var img = new SimpleImage("chapel.png");
+print(img)
+
+for (var pixel of img.values()){
+    if (pixel.getX()<= 50 & pixel.getY()<= 50 ){
+        pixel.setRed(0);
+        pixel.setGreen(255);
+        pixel.setBlue(0);
+    }
+}
+print(img)
+
+/*Вправа 6 — Накресліть прямокутник будь-якого кольору у верхньому правому куті зображення
+Напишіть функцію для розміщення прямокутника заданого кольору і розміру у верхньому правому куті зображення. Ця функція topRightCorner матиме шість параметрів, що визначатимуть висоту, ширину, саме зображення та його кольори: cornerWidth, cornerHeight, someImage, red, green, blue. Так, функція замінить правий верхній кут світлини someImage на прямокутник з висотою cornerHeight, шириною cornerWidth, та зафарбує його кольором, що містить певну кількість червоного, зеленого і синього у кожному пікселі.
+
+Наприклад, інструкція result = topRightCorner(30, 60, picture, 255, 255, 0) виведе у верхньому правому куті жовтий прямокутник 30 на 60 пікселів, адже саме жовтий колір містить по 255 зеленого і червоного та 0 синього. Зауважте, що picture — це simpleImage знизу ліворуч.*/
+
+function topRightCorner(cornerWidth, cornerHeight, someImage, red, green, blue) {
+   for (var pixel of someImage.values()){
+    if (pixel.getX()>=someImage.getWidth()-cornerWidth & pixel.getY()<= cornerHeight ){
+        pixel.setRed(red);
+        pixel.setGreen(green);
+        pixel.setBlue(blue);
+    }
+   }
+   return someImage
+}
+var picture = new SimpleImage("chapel.png");
+var result = topRightCorner(30, 60, picture, 255, 255, 0);
+print(result);
+var picture2 = new SimpleImage("smalllion.jpg");
+var result2 = topRightCorner(125, 20, picture2, 255, 0, 0);
+print(result2);
+
+/*  Вправа 7 — Створіть прямокутник з червоним градієнтом
+Напишіть функцію changeRed, що малює прямокутник 256 на 200 пікселів, та демонструє всі можливі відтінки червоного кольору, тоді як значення синього і зеленого у кожному пікселі дорівнюють 0. Після запуску програми, ви маєте побачити на екрані прямокутник подібний до наведеного нижче.*/
+function changeRed(width, height) {
+    var picture = new SimpleImage(width, height);
+    var red = 0;
+    for (var pixel of picture.values()){
+        if (pixel.getX()<=picture.getWidth()){
+        pixel.setRed(0+pixel.getX());
+         }
+    }
+        return picture;
+}
+var result = changeRed(256,200);
+print(result);
+/*Додаткове завдання
+
+Всього одна зміна в коді, й ви побачите зовсім інший результат. Змініть функцію changeRed так, щоб у неї можна було передавати числа для синього та зеленого кольорів. Тоді виклик зі значенням синього 200 та зеленого 100 призведе до такого результату:  
+
+*/
+function changeRed(width, height,green,blue) {
+    var picture = new SimpleImage(width, height);
+    var red = 0;
+    for (var pixel of picture.values()){
+        if (pixel.getX()<=picture.getWidth()){
+        pixel.setRed(0+pixel.getX());
+        pixel.setGreen(green);
+        pixel.setBlue(blue);
+         }
+    }
+        return picture;
+}
+var result = changeRed(256,200,200,100);
+print(result);

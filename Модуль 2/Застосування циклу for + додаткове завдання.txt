@@ -1,0 +1,36 @@
+//Застосування циклу for
+var img = new SimpleImage(200,200);
+print(img);
+
+for (var pixel of img.values()){
+    var newR= 255 - pixel.getRed();
+    pixel.setBlue(newB);
+    var newG= 255 - pixel.getGreen();
+    pixel.setBlue(newB);
+    var newB= 255 - pixel.getBlue();
+    pixel.setRed(newR);
+    pixel.setGreen(newG);
+    pixel.setBlue(newB);
+    
+    
+}
+
+print(img);
+
+//Додаткове завдання
+
+
+for (var pixel of img.values()){
+   // var newR= 255 - pixel.getRed();
+    pixel.setBlue(newB);
+    var newG= 255 - pixel.getGreen();
+   // pixel.setBlue(newB);
+    var newB= 255 + pixel.getBlue();
+    pixel.setRed(newR);
+    pixel.setGreen(newG);
+    pixel.setBlue(newB);
+    
+    
+}
+print(pixel)
+print(img);

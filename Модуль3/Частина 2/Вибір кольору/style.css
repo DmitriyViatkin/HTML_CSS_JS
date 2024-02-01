@@ -1,0 +1,10 @@
+h1 {
+  font-family: arial;
+  color: black;
+}
+#div1{
+  width:600px;
+  height:300px;
+  border:6px solid ;
+  background-color: orange;
+}

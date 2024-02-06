@@ -1,0 +1,19 @@
+var img= new SimpleImage('palm-and-beach.png');
+ print (img);
+function color_gray(img){
+    for (var pixel of img.values() ){
+       var r = pixel.getRed()
+           
+       var g = pixel.getGreen()
+          
+       var b = pixel.getBlue()
+           var s = (r+g+b)/3;
+           pixel.setGreen(s)
+           pixel.setBlue(s)
+           pixel.setRed(s)
+    }
+   print (img); 
+}
+
+
+color_gray(img);
